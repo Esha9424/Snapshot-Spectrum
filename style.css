@@ -1,0 +1,72 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#wrapper{
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.container{
+ height: 100%;
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 20px;
+}
+.container h1{
+    margin: 20px 0;/* top bottom phir left or right to ye bs top or bottom ki h  yha 0 liya h necche botoom phir liya jab lga honi chahiye bottom se bhi*/
+    text-align:center ;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+.gallery{
+    display: flex;
+    flex-wrap: wrap;/* shift img in row{jab veiwport khatam ho to wo one by one arrange ho jaye 1 2 3 phir next row me 4 5 6}*/
+    justify-content: space-between;
+}
+.card{
+    width: 32%;/* height kyu nhi  flex ke box mein jitni content ke acc width lete the or height wo puri lete the to decide krne ki jarrorat nhi*/
+    position: relative;/* card div me image ko chipkane ke liye wo overflow ho rhi h*/
+    margin-bottom: 20px;
+    border-radius: 10px;/* round the corner ya border ko of card*/
+    overflow: hidden;
+    height: 400px;/* lga di kyuki neche wali row ki height baaki rows se jyada ho ja rhi thi*/
+
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%);
+    box-shadow: 0 0 20px #333;
+    object-fit :cover;/* good practice*/
+}
+.card:hover{
+    transform: scale(1.03);/* hover se card bda hona chahiye*/
+    filter:drop-shadow(0 0 10px #333);/*filter lagaya h box shadow nhi kyuki drop shadow ka effect jyada versetile h*/
+    transition:0.3s;/* kitne sec me change dikhega*/
+}
+.card:hover img{
+    filter: grayscale(0%);/* ki hover krte hi color laut aye 0 grayscale*/
+}
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;/* parent card h to card ka 100% 20%*/
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;/* yha tak given*/
+    color: #fff;
+    opacity: 0;/* transparency full dikhe ga hi nhi*/
+    border-radius: 0 0 10px 10px;/* taki round effect bna rhe*/
+    background: linear-gradient(0deg, rgba(0,0,0,0.5)0%,rgba(255,255,255,0) 100%);/**/
+    transition: 0.3s;
+
+}
+.card:hover figcaption{
+    opacity:1;
+    transform: scale(1.03);
+}
